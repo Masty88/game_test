@@ -11,11 +11,12 @@ class PlayerController extends GameObject{
         this.player.checkCollisions= true;
 
     }
-   remove() {
-        const deltaTimeInMillis = this.scene.getEngine().getDeltaTime();
-        const rpm = 100;
-        this.player.rotation.y +=(rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000); //     if (box !== undefined) {
-    }
+   beforeLoop() {
+       super.beforeLoop();
+       const deltaTimeInMillis = this.scene.getEngine().getDeltaTime();
+       const rpm = 100;
+       this.player.rotation.y +=(rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000); //     if (box !== undefined) {
+   }
 }
 
 export default PlayerController
